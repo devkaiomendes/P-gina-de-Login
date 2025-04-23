@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .dashboard {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .dashboard h1 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .dashboard p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .logout-btn {
+      background-color: #ffffff;
+      color: #2575fc;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #e6e6e6;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Olá, <span id="userName">usuário</span> 👋</h1>
+    <p>Bem-vindo à sua área protegida!</p>
+    <button class="logout-btn" onclick="logout()">Sair</button>
+  </div>
+
+  <script>
+    // Recupera os dados do usuário
+    const email = localStorage.getItem('userEmail');
+    if (!email) {
+      // Se não estiver logado, volta para login
+      window.location.href = 'login.html';
+    } else {
+      const user = JSON.parse(localStorage.getItem(email));
+      document.getElementById('userName').textContent = user.names || 'Usuário';
+    }
+
+    // Função de logout
+    function logout() {
+      localStorage.removeItem('userEmail');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
