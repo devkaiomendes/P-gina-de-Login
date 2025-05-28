@@ -3,31 +3,14 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
-  /* --first-color: hsl(208, 92%, 54%);
-  --first-color-alt: hsl(208, 88%, 50%);
-  --title-color: hsl(220, 68%, 4%);
-  --white-color: hsl(0, 0%, 100%);
-  --text-color: hsl(220, 15%, 66%);
-  --body-color: hsl(0, 0%, 100%);
-  --container-color: hsl(220, 50%, 97%); */
 
-
-
-
-  --first-color: #0A3A40;
-  --first-color-alt: #1D7373;
-  --title-color: #1D7373;
-  --white-color: #042326;
-  --text-color: #107361;
-  --body-color: #042326;
-  --container-color: #107361;
-
-
-
-
-
+  --first-color: #595859;
+  --first-color-alt: #A69A85;
+  --title-color: #D9CDBF;
+  --white-color: #F2ECE9;
+  --text-color:  #262626;
+  --body-color: #A69A85;
+  --container-color: #F2ECE9;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -73,7 +56,7 @@ button {
 
 body {
   background-color: var(--body-color);
-  color: var(--text-color);
+  color: var(--first-color);
 }
 
 input,
@@ -105,19 +88,17 @@ img {
 
 /*=============== LOGIN  ===============*/
 .login {
-  position: relative;
-  height:  100vh ;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
   overflow: hidden;
-}
-
-.login__blob {
-  display: none;
+  position: relative;
 }
 
 .login__title {
   font-size: var(--big-font-size);
-  color: var(--title-color);
+  color: var(--white-color);
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -149,7 +130,7 @@ img {
   position: absolute;
   left: 1.25rem;
   font-weight: var(--font-semi-bold);
-  transition: transform .4s, font-size .4s, color .4s;
+  transition: transform .4s, font-size .4s, color .4s; 
 }
 
 .login__icon {
@@ -182,8 +163,8 @@ img {
   width: 100%;
   display: inline-flex;
   justify-content: center;
-  background-color: var(--first-color);
-  color: var(--white-color);
+  background-color: var(--container-color);
+  color: var(--first-color-alt);
   font-weight: var(--font-semi-bold);
   padding-block: 1.5rem;
   border-radius: 4rem;
@@ -194,7 +175,8 @@ img {
 
 .login__button:hover {
   background-color: var(--first-color-alt);
-  box-shadow: 0 8px 24px hsla(208, 92%, 32%, .3);
+  box-shadow: 0 8px 24px  var(--first-color);
+  color: var(--container-color);
 }
 
 .login__social {
@@ -223,7 +205,7 @@ img {
   width: 32px;
   height: 32px;
   background-color: var(--title-color);
-  box-shadow: 0 4px 8px #01362d;
+  box-shadow: 0 4px 8px var(--first-color);
   border-radius: .5rem;
   display: grid;
   place-items: center;
@@ -237,11 +219,12 @@ img {
 .login__switch {
   text-align: center;
   font-size: var(--small-font-size);
+  color: var(--white-color);
 }
 
 .login__switch button {
   background: none;
-  color: var(--first-color);
+  color: var(--container-color);
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
   cursor: pointer;
@@ -249,13 +232,13 @@ img {
 }
 
 .login__switch button:hover {
-  color: var(--first-color-alt);
+  color: var(--container-color);
 }
 
 .login__access,
 .login__register {
   position: absolute;
-  left: 0;
+  left: 30%;
   right: 0;
   width: 100%;
   transition: transform 0.5s, opacity 0.5s ease;
@@ -356,14 +339,18 @@ img {
   .login__group {
     grid-template-columns: repeat(2, 1fr);
   }
-  .login__blob {
-    display: block;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  .login__img {
-    transform: translate(0rem, 0rem); 
-  }
 } 
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background:
+  radial-gradient(circle at 10% 20%, var(--white-color) 0%, transparent 20%),
+  radial-gradient(circle at 90% 80%, var(--white-color) 0%, transparent 20%),
+  var(--text-color);
+}
