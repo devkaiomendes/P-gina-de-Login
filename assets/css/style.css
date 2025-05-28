@@ -238,9 +238,11 @@ img {
 .login__access,
 .login__register {
   position: absolute;
-  left: 30%;
+  left: 50%;
   right: 0;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 400px;
   transition: transform 0.5s, opacity 0.5s ease;
 }
 
